@@ -1,0 +1,33 @@
+{
+  "name": "eatdaburger",
+  "version": "1.0.0",
+  "description": " A restaurant app that follows a MVC design pattern utilizing a homemade ORM, Handlebars.js, Express.js, Node.js, and MySQL that lets users input the names of burgers they'd like to eat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrandSuccess87/EatDaBurger.git"
+  },
+  "keywords": [
+    "Handlebars",
+    "express",
+    "node",
+    "javascript",
+    "orm",
+    "mysql"
+  ],
+  "author": "Quintessa Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrandSuccess87/EatDaBurger/issues"
+  },
+  "homepage": "https://github.com/GrandSuccess87/EatDaBurger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0"
+  }
+}
