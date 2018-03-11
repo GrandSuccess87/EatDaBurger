@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 //create an environment bound port for heroku remote
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 8002;
 
 var app = express();
 

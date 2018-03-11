@@ -1,0 +1,36 @@
+<h1>Yummy Burgers!!</h1>
+
+<h2>Burgers to be Eaten!</h2>
+
+<!-- Pass in data from server.js -->
+<ul>
+  {{#each burgerData}}
+  	<li>
+  		<p><span class="label">ID:</span> {{this.id}}</p>
+      <p><span class="label">Name:</span> {{this.burger_name}}</p>
+      <p><span class="label">Devoured:</span> {{this.devoured}}</p>
+
+      <button data-id="{{this.id}}" class="delquote">Delete</button>
+
+      <a href="/{{this.id}}">Update this burger</a>
+  	</li>
+  {{/each}}
+</ul>
+
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="sleepy">Sleepy?</label><br>
+    <input type="radio" name="sleepy" value="1" checked> Devoured!<br>
+    <input type="radio" name="sleepy" value="0"> Waiting to be Eaten!
+  </div>
+
+  <button type="submit">Add a Burger to Devour</button>
+</form>
