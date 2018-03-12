@@ -1,8 +1,35 @@
-<h1>Yummy Burgers!!</h1>
+<div class="jumbotron-container">	
+	<div class="jumbotron"> 
+		<img src="/public/assets/images/burger_banner.jpg"> 
+		<h1>Eat Da Burgers!!</h1>
+	</div>
 
-<h2>Burgers to be Eaten!</h2>
 
 <!-- Pass in data from server.js -->
+
+
+
+<h2 class="to-devour">Burgers to Devour</h2>
+
+<ul>
+  {{#each burgersData}}
+    {{#unless devoured}}
+      {{> cats/cat-block sleep=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<li>
+	{{name}}
+
+	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
+		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
+	</button>
+
+	<button class="delete-cat" data-id="{{this.id}}">DELETE!</button>
+</li>
+
+
 <ul>
   {{#each burgersData}}
   	<li>
@@ -17,20 +44,13 @@
   {{/each}}
 </ul>
 
-
-<h2>Add a Burger</h2>
 <form class="create-form">
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+   <div class="form-group">
+    <label for="ca">Add a Yummy Burger:</label><br><br>
+    <input type="text" id="burgerInput" name="name">
   </div>
-
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Devoured!<br>
-    <input type="radio" name="sleepy" value="0"> Waiting to be Eaten!
-  </div>
-
-  <button type="submit">Add a Burger to Devour</button>
+<br><br>
+  <button type="submit">Submit Burger</button>
+  <h5>Enter the Type of Burger You Would Like to Have, Then Click the "Submit" Button</h5>
 </form>
