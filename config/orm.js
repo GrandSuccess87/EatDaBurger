@@ -1,7 +1,7 @@
 // Import MySQL connection.
 var connection = require("../config/connection.js");
 
-// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
+// The below helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
 function printQuestionMarks(num) {
     var arr = [];
@@ -43,7 +43,9 @@ function objToSql(ob) {
 // Object for selecting all our SQL statement functions.
 var orm = {
     all: function(tableInput, cb) {
+      console.log("all");
       var queryString = "SELECT * FROM " + tableInput + ";";
+      console.log(queryString);
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
@@ -51,9 +53,69 @@ var orm = {
         cb(result);
       });
     },
+
+    // * Create a method for `insertOne()`
+    create: function(qa, table, columns, values) {
+      console.log("insert");
+        var queryString = "INSERT INTO " + table;
+
+        queryString += " (";
+        queryString += columns.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
+
+        console.log(queryString);
+
+        connection.query(queryString, values, function(err, result){
+            if (err) {
+                throw err;
+            }
+
+            qa(result);
+
+        });
+    },
+
+// * Create a method for `updateOne()`
+    update: function( table, objColVals, condition, cb) {
+      console.log("update");
+      var queryString = "UPDATE" + table;
+      queryString += " SET ";
+      queryString += objToSql(objColVals);
+      queryString += " WHERE ";
+      queryString += condition;
+
+      console.log(queryString);
+
+      connection.query(queryString, function(err, result){
+        if (err) {
+            throw err;
+        }
+
+        cb(result);
+      });
+    },
+    // Create a method for deleting a burger
+    delete: function(table, condition, qa) {
+      console.log("delete");
+      var queryString = "DELETE FROM" + table;
+      queryString += " WHERE ";
+      queryString += condition;
+      console.log(queryString);
+      
+      connection.query(queryString, function(err, result){
+        if(err){
+          throw err;
+        }
+        qa(result);
+      })
+    }
 };
-// * `insertOne()`
-// * `updateOne()`
+
+
+
 
 
 module.exports = orm;

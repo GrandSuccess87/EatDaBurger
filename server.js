@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 //create an environment bound port for heroku remote
-var PORT = process.env.PORT || 8002;
+var PORT = process.env.PORT || 8800;
 
 var app = express();
 
@@ -22,9 +22,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-// var routes = require("./controllers/catsController.js");
+var routes = require("./controllers/burgersControllers.js");
 
-// app.use(routes);
+app.use(routes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
