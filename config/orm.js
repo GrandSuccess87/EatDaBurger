@@ -55,43 +55,20 @@ var orm = {
     },
 
     // * Create a method for `insertOne()`
-    create: function(qa, table, columns, values) {
+    create: function(qa) {
       console.log("insert");
-      
-        var queryString = "INSERT INTO " + table;
-
-        queryString += " (";
-        queryString += columns.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
-
-        console.log(queryString);
-
-        connection.query(queryString, values, function(err, result){
-            if (err) {
-                throw err;
-            }
-
+      connection.query("INSERT INTO + (burger_name) VALUES (?)", [req.body.burger_name], function(err, result) {
+        if (err) {
+          return res.status(500).end();
+        }
             qa(result);
 
-
-            app.post("/movies", function(req, res) {
-              connection.query("INSERT INTO movies (movie) VALUES (?)", [req.body.movie], function(err, result) {
-                if (err) {
-                  return res.status(500).end();
-                }
-            
-                // Send back the ID of the new movie
-                res.json({ id: result.insertId });
-                console.log({ id: result.insertId });
-              });
-            });
-            
-
-        });
-    },
+                // Send back the result of the new movie
+                res.json({ result});
+                console.log({ id: result.burger_name });
+      });
+       
+    },      
 
 // * Create a method for `updateOne()`
     update: function( table, objColVals, condition, cb) {

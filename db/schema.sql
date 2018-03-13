@@ -9,7 +9,8 @@ To run this file, we do the following in our Terminal:
 3. Run "source schema.sql"
 
 */
-
+-- Drop Database If It already exists --
+DROP DATABASE burgers_db;
 -- Create the database burgers_db and specified it for use.
 CREATE DATABASE burgers_db;
 USE burgers_db;
@@ -19,8 +20,9 @@ CREATE TABLE burgers
 (
 id int NOT NULL AUTO_INCREMENT,
 burger_name varchar(255) NOT NULL,
-devoured int (10) NOT NULL,
-PRIMARY KEY (id)
+devoured BOOLEAN DEFAULT false,
+PRIMARY KEY (id),
+date TIMESTAMP
 );
 
 
