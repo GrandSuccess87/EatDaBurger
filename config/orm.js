@@ -57,6 +57,7 @@ var orm = {
     // * Create a method for `insertOne()`
     create: function(qa, table, columns, values) {
       console.log("insert");
+      
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -74,6 +75,20 @@ var orm = {
             }
 
             qa(result);
+
+
+            app.post("/movies", function(req, res) {
+              connection.query("INSERT INTO movies (movie) VALUES (?)", [req.body.movie], function(err, result) {
+                if (err) {
+                  return res.status(500).end();
+                }
+            
+                // Send back the ID of the new movie
+                res.json({ id: result.insertId });
+                console.log({ id: result.insertId });
+              });
+            });
+            
 
         });
     },

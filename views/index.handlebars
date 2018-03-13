@@ -44,13 +44,15 @@
   {{/each}}
 </ul>
 
-<form class="create-form">
+<form class="create-form" action="/api/burgers">
+
+    <div id="newBurger"></div>
 
    <div class="form-group">
     <label for="ca">Add a Yummy Burger:</label><br><br>
     <input type="text" id="burgerInput" name="name">
   </div>
 <br><br>
-  <button type="submit">Submit Burger</button>
+  <button type="submit" id="addburger">Submit Burger</button>
   <h5>Enter the Type of Burger You Would Like to Have, Then Click the "Submit" Button</h5>
 </form>
