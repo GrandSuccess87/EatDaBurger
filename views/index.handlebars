@@ -1,70 +1,69 @@
-<div class="jumbotron-container">	
-	<div class="jumbotron"> 
-		<img src="/public/assets/images/burger_banner.jpg"> 
-		<h1>What Burger Are You Craving?!</h1>
-	</div>
+<div class="jumbotron-container">
+    <div class="jumbotron">
+        <img src="/public/assets/images/burger_banner.jpg">
+        <h1>What Burger Are You Craving?!</h1>
+    </div>
 
 
-<!-- Pass in data from server.js -->
+    <!-- Pass in data from server.js -->
 
-<div id="messages"></div>
+    <div id="messages"></div>
 
-<h2 id="notDevoured">Burgers to Devour</h2>
+    <h2 id="notDevoured">Burgers to Devour</h2>
 
-  <ul>
-  {{#each burgersData}}
-    {{#unless this.devoured}}
-      
-          <p>ID:{{this.id}}</p>
-	      <p>{{this.burger_name}}</p>
+    <ul>
+    {{#each burgersData}} 
+        {{#unless this.devoured}}
 
-    <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
-        {{!-- <input type="hidden" name="devoured" value="false"> --}}
+        <p>ID:{{this.id}}</p>
+        <p>{{this.burger_name}}</p>
 
-        <button type="submit" name="devoured" value="true">DEVOUR THAT BURGER!</button>
+        <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
+            {{!--
+            <input type="hidden" name="devoured" value="false"> --}}
+
+            <button type="submit" name="devoured" value="true">DEVOUR THAT BURGER!</button>
+
+            {{> burgers/delete-burger}}
+
+        </form>
+
+        {{/unless}}   
+    {{/each}}
+    </ul>
+
+
+    <h2 id="burgerDevoured">Devoured Burgers!</h2>
+
+
+    <ul>
+        {{#each burgersData}} 
+        {{#if this.devoured}}
+
+        <p>ID:{{this.id}}</p>
+        <p>{{this.burger_name}}</p>
+
+        {{burgers/delete-burger}}
+        
+        </form>
+        {{/if}} 
+        {{/each}}
+    </ul>
+
+
+    <form class="create-form" method="POST" action="/api/burgers">
+
+        <div id="newBurger"></div>
+
+        <div class="form-group" id="addform">
+            <label for="ca">Add a Yummy Burger:</label>
+            <br>
+            <br>
+            <input type="text" id="burgerInput" name="burger_name" size="35" placeholder="What burger would you like to have?">
+        </div>
+
+        <br>
+        <br>
+        <button type="submit" id="addburger">Submit Burger</button>
+        <h5>Enter the Type of Burger You Would Like to Have, Then Click the "Submit" Button</h5>
     </form>
-
-    <form action="/api/burgers/{{this.id}}?_method=DELETE" method="POST">
-
-        <button type="submit">DELETE THAT BURGER!</button>
-
-    </form>
-    
-    {{/unless}}
-  {{/each}}
-</ul>
-
-
-<h2 id="burgerDevoured">Devoured Burgers!</h2>
-
-
-  <ul>
-  {{#each burgersData}}
-    {{#if this.devoured}}
-      
-          <p>ID:{{this.id}}</p>
-	      <p>{{this.burger_name}}</p>
-
-    <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
-        {{!-- <input type="hidden" name="devoured" value="true"> --}}
-        <button id="deleteburger" data-id="{{this.id}}">DELETE BURGER!</button>
-    </form>
-    {{/if}}
-  {{/each}}
-</ul>
-
-
-<form class="create-form" method="POST" action="/api/burgers">
-
-    <div id="newBurger"></div>
-
-   <div class="form-group" id="addform">
-    <label for="ca">Add a Yummy Burger:</label><br><br>
-    <input type="text" id="burgerInput" name="burger_name" size="35" placeholder="What burger would you like to have?">
-  </div>
-
-<br><br>
-  <button type="submit" id="addburger">Submit Burger</button>
-  <h5>Enter the Type of Burger You Would Like to Have, Then Click the "Submit" Button</h5>
-</form>
-
