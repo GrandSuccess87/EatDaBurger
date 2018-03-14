@@ -12,7 +12,7 @@ To run this file, we do the following in our Terminal:
 -- Drop Database If It already exists --
 DROP DATABASE burgers_db;
 -- Create the database burgers_db and specified it for use.
-CREATE DATABASE burgers_db;
+CREATE DATABASE IF NOT EXISTS burgers_db;
 USE burgers_db;
 
 -- Create the table burgers.

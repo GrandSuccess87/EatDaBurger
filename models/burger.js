@@ -3,33 +3,33 @@ var orm = require("../config/orm.js");
 
 var burger = {
 
-  //create a selection all function 
-  all: function(test) {
+  //create a select all function 
+  all: function(get) {
     orm.all("burgers", function(res) {
-      test(res);
+      get(res);
     });
   },
 
   //create an insert function for adding a burger
-  create: function(columns, values, get) {
-      orm.create("burgers", columns, values, function(res){
-        get(res);
-      });
+  create: function(cols, vals, qa) {
+    orm.create("burgers", cols, vals, function(res) {
+      qa(res);
+    });
   },
 
   //create an update function for updating a burger already in the MySQL database
-  update: function(objColVals, condition, get) {
+  update: function(objColVals, condition, qa) {
       orm.update("burgers", objColVals, condition, function(res){
-        get(res);  
+        qa(res);  
     });
   },
 
   // create a delete function for deleting a burger already in the MySQL database
-  delete: function( condition, get){
-      orm.delete("burgers", condition, function(res){
-          get(res);
+  delete: function (condition, qa) {
+      orm.delete("burgers", condition, function (res) {
+          qa(res);
       });
-  }
+     }
 };
 
 module.exports = burger;

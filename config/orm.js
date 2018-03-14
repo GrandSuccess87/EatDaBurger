@@ -36,44 +36,49 @@ function objToSql(ob) {
     return arr.toString();
   }
 
-
-
 // In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
-// * `selectAll()`
-// Object for selecting all our SQL statement functions.
+
+// ---------------- selectAll() --------------------------------- //
+// Object for all our SQL statement functions.
 var orm = {
-    all: function(tableInput, cb) {
-      console.log("all");
+    all: function(tableInput, qa) {
+      console.log("select all");
       var queryString = "SELECT * FROM " + tableInput + ";";
       console.log(queryString);
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }
-        cb(result);
+        qa(result);
       });
     },
 
-    // * Create a method for `insertOne()`
-    create: function(qa) {
-      console.log("insert");
-      connection.query("INSERT INTO + (burger_name) VALUES (?)", [req.body.burger_name], function(err, result) {
+// ---------------- InsertOne() --------------------------------- //
+create: function(table, cols, vals, qa) {
+      console.log("insert one");
+      var queryString = "INSERT INTO " + table;
+  
+      queryString += " (";
+      queryString += cols.toString();
+      queryString += ") ";
+      queryString += "VALUES (";
+      queryString += printQuestionMarks(vals.length);
+      queryString += ") ";
+  
+      console.log(queryString);
+  
+      connection.query(queryString, vals, function(err, result) {
         if (err) {
-          return res.status(500).end();
+          throw err;
         }
-            qa(result);
-
-                // Send back the result of the new movie
-                res.json({ result});
-                console.log({ id: result.burger_name });
-      });
-       
+        qa(result);
+      });  
     },      
 
-// * Create a method for `updateOne()`
-    update: function( table, objColVals, condition, cb) {
-      console.log("update");
-      var queryString = "UPDATE" + table;
+// ---------------- UpdateOne() --------------------------------- //
+update: function( table, objColVals, condition, qa) {
+      console.log("update one");
+      var queryString = "UPDATE " + table;
       queryString += " SET ";
       queryString += objToSql(objColVals);
       queryString += " WHERE ";
@@ -85,14 +90,13 @@ var orm = {
         if (err) {
             throw err;
         }
-
-        cb(result);
+        qa(result);
       });
     },
-    // Create a method for deleting a burger
-    delete: function(table, condition, qa) {
-      console.log("delete");
-      var queryString = "DELETE FROM" + table;
+// ---------------- DeleteOne() --------------------------------- //
+delete: function(table, condition, qa) {
+      console.log("delete one");
+      var queryString = "DELETE FROM " + table;
       queryString += " WHERE ";
       queryString += condition;
       console.log(queryString);
@@ -102,7 +106,7 @@ var orm = {
           throw err;
         }
         qa(result);
-      })
+      });
     }
 };
 

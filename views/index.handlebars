@@ -9,29 +9,48 @@
 
 
 
-<h2 class="to-devour">Burgers to Devour</h2>
+<h2>Burgers to Devour</h2>
 
-<ul>
+  <ul>
   {{#each burgersData}}
     {{#unless devoured}}
-      {{> cats/cat-block sleep=true}}
+      <li>
+	{{burger_name}}
+
+	<button class="change-burger" data-id="{{id}}" data-devoured="{{devoured}}">
+		{{#if devoured}}DEVOUR!{{/if}}
+	</button>
+
+	<button id="deleteBurger" data-id="{{this.id}}">DELETE!</button>
+</li>
     {{/unless}}
   {{/each}}
 </ul>
 
-<li>
-	{{name}}
+ 
 
-	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
-		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button>
-
-	<button class="delete-cat" data-id="{{this.id}}">DELETE!</button>
-</li>
-
+<h2>Devoured Burgers!</h2>
 
 <ul>
   {{#each burgersData}}
+    {{#unless devoured}}
+<li>
+	{{burger_name}}
+
+	<button class="change-burger" data-id="{{id}}" data-devoured="{{devoured}}">
+		{{#if devoured}}DEVOUR!{{/if}}
+	</button>
+
+	<button id="deleteBurger" data-id="{{this.id}}">DELETE!</button>
+</li>    {{/unless}}
+  {{/each}}
+</ul>
+
+
+
+
+{{!-- <ul>
+  {{#each burgersObject}}
   	<li>
   		<p><span class="label">ID:</span> {{this.id}}</p>
       <p><span class="label">Name:</span> {{this.burger_name}}</p>
@@ -42,17 +61,32 @@
       <a href="/{{this.id}}">Update this burger</a>
   	</li>
   {{/each}}
-</ul>
+</ul> --}}
 
-<form class="create-form" action="/api/burgers">
+<form class="create-form" method="POST" action="/api/burgers">
 
     <div id="newBurger"></div>
 
-   <div class="form-group">
+   <div class="form-group" id="addform">
     <label for="ca">Add a Yummy Burger:</label><br><br>
-    <input type="text" id="burgerInput" name="name">
+    <input type="text" id="burgerInput" name="burger_name">
+    
   </div>
+
 <br><br>
   <button type="submit" id="addburger">Submit Burger</button>
   <h5>Enter the Type of Burger You Would Like to Have, Then Click the "Submit" Button</h5>
+</form>
+
+
+
+
+
+    <div id="oldBurger"></div>
+
+<h2>Update a Burgers Eating Status</h2>
+<form id="updateform" class="button-size">
+  <input type="text" name="updateInput" placeholder="id">
+	<textarea type="text" name="burger_name" placeholder="which burger would you like to update?"></textarea>
+	<button type="submit" id="updateburger">Update Movie!</button>
 </form>
