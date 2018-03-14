@@ -21,7 +21,7 @@ var burgers = require("../models/burger.js");
 
 
     router.get("/api/burgers", function(req, res) {
-        console.log("get api burgers");
+        console.log("get api");
     burgers.all(function(data) {
         return res.json(data);
     });
@@ -38,6 +38,7 @@ var burgers = require("../models/burger.js");
         }); 
 
     router.put("/api/burgers/:id", function(req, res){
+        // update row where id = the parameter of id
         var condition = "id = " + req.params.id;
         console.log("Updating at: " + condition); 
 
@@ -55,6 +56,7 @@ var burgers = require("../models/burger.js");
     });
 
     router.delete("/api/burgers/:id", function(req,res){
+        // delete row where id = the parameter of id
         var condition = "id = " + req.params.id;
         console.log("Deleting burger at: " + condition);
         burgers.delete(condition, function(result){

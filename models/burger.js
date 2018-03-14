@@ -4,9 +4,9 @@ var orm = require("../config/orm.js");
 var burger = {
 
   //create a select all function 
-  all: function(get) {
+  all: function(qa) {
     orm.all("burgers", function(res) {
-      get(res);
+      qa(res);
     });
   },
 
