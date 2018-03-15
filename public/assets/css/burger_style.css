@@ -38,22 +38,48 @@ body {
     font-style: italic;
     font-weight: 700;
     margin-bottom: 4%;
-    background-color: whitesmoke;
+    background-color: rgba(255, 254, 253, 0.918);
     
 }
 
 
 .h2hr{
     width: 23%;
-    margin-left:0;
     border: solid 1px;
-    color: whitesmoke;
+    /* color: rgb(39, 36, 36); */
+    color: purple;
 }
 
+.form-group {
+    margin-left: 30%;
+}
+
+.input-container {
+    margin-left:10%;
+}
+
+.submit-container{
+    margin-right: 10%;
+    padding: 10px 5px;
+    border-radius: 50%;
+}
+
+button:hover{
+    background-color: silver(226, 164, 94);
+    color: blue;
+}
+
+.instruction-container{
+    margin-right: 10%;
+}
 .text{
     font-family: 'Arial Narrow' Verdana;
     font-style: italic;    
-    color: #ffffff;
+    color: rgba(255, 0, 0, 0.63);
+}
+
+.h2text {
+    text-align: center;
 }
 
 .add-text {
@@ -64,7 +90,16 @@ body {
 
 .submit-text {
     color: black;
-    font-size: 12px;
+    font-size: 20px;
+    font-weight: 700;    
     font-family:  Arial, Helvetica, sans-serif;
     
+}
+
+#addburger{
+    background-color: white(238, 194, 118);
+}
+
+ul {
+    text-align: center;
 }

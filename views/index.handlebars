@@ -5,12 +5,42 @@
         <hr id="jumbohr">
     </div>
 
-    
-
-
-    <!-- Pass in data from server.js -->
-
     <div id="messages"></div>
+
+<div class="form-container">
+
+    <form class="create-form" method="POST" action="/api/burgers">
+
+        <div id="newBurger"></div>
+
+        <div class="form-group" id="addform">
+            <label for="ca" class="text add-text">Add a Burger You Have a Taste For</label>
+            <br>
+            <br>
+            <div class="input-container">
+            <textarea type="text" id="burgerInput" name="burger_name" size="100" placeholder="What burger would you like to have?"></textarea>
+
+        <br><br>
+        
+        <div class="submit-container">
+        <button type="submit" class="text submit-text" id="addburger">Submit Burger</button>
+        </div>
+
+        </div>
+
+<br>
+        <div class="instruction-container">
+        <h5 class="text">Type a Burger to Add, Then Click the "Submit" Button</h5>
+        </div>
+        
+        </div>
+    </form>
+</div>
+
+<br><br>
+
+    <div class="col-xs-6" id="left">
+			<div class="panel">
 
     <h2 class="h2text text" id="notDevoured">Burgers to Devour</h2>
     <hr class="h2hr">
@@ -32,8 +62,12 @@
         {{/unless}}   
     {{/each}}
     </ul>
+</div>
+</div>
 
 
+<div class="col-xs-6" id="left">
+			<div class="panel">
     <h2 class="h2text text" id="burgerDevoured">Devoured Burgers!</h2>
     <hr class="h2hr">
 
@@ -51,22 +85,8 @@
         {{/each}}
     </ul>
 
-
-    <form class="create-form" method="POST" action="/api/burgers">
-
-        <div id="newBurger"></div>
-
-        <div class="form-group" id="addform">
-            <label for="ca" class="text add-text">Add a Yummy Burger:</label>
-            <br>
-            <br>
-            <input type="text" id="burgerInput" name="burger_name" size="35" placeholder="What burger would you like to have?">
-        </div>
-
-        <br>
-        
-        <button type="submit" class="text submit-text" id="addburger">Submit Burger</button>
-        <h5 class="text">Enter the Type of Burger You Would Like to Have, Then Click the "Submit" Button</h5>
-    </form>
+    </div>
+    </div>
 
 
+    
