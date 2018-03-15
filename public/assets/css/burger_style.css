@@ -7,9 +7,64 @@
 
 }
 
-
-
-body {
-    background-color: white;
+#jumbotron-text {
+    margin-left: 10%;
+    color: rgba(255, 0, 0, 0.63);
+    font-family: 'Didact Gothic';
 }
 
+#jumbohr{
+    width: 40%;
+    border: solid 2px;
+    color: whitesmoke;
+    
+}
+
+body {
+    background-color: black;
+}
+
+.body-text {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: rgb(153, 129, 9);
+    font-weight: 700;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 2%;
+    
+}
+
+.devourburger{
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 4%;
+    background-color: whitesmoke;
+    
+}
+
+
+.h2hr{
+    width: 23%;
+    margin-left:0;
+    border: solid 1px;
+    color: whitesmoke;
+}
+
+.text{
+    font-family: 'Arial Narrow' Verdana;
+    font-style: italic;    
+    color: #ffffff;
+}
+
+.add-text {
+    margin-top: 2%;
+    font-family: 'Marienda';
+    font-size: 24px;
+}
+
+.submit-text {
+    color: black;
+    font-size: 12px;
+    font-family:  Arial, Helvetica, sans-serif;
+    
+}
