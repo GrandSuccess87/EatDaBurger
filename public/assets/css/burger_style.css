@@ -47,7 +47,7 @@ body {
     width: 23%;
     border: solid 1px;
     /* color: rgb(39, 36, 36); */
-    color: red;
+    color: purple;
 }
 
 .form-group {
@@ -80,7 +80,9 @@ button:hover{
 
 .h2text {
     text-align: center;
-    color: white;
+    /* color: white; */
+    color: rgba(255, 0, 0, 0.63);
+    
 }
 
 .add-text {
@@ -106,5 +108,5 @@ ul {
 }
 
 .panel{
-    background-color: black;
+    background-color: white;
 }
