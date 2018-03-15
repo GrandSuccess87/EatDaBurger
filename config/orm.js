@@ -82,7 +82,7 @@ update: function( table, objColVals, condition, qa) {
       queryString += " SET ";
       queryString += objToSql(objColVals);
       queryString += " WHERE ";
-      queryString += condition;
+      queryString +=  condition;
 
       console.log(queryString);
 
