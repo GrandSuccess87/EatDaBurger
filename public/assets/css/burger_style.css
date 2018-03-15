@@ -14,7 +14,7 @@
 }
 
 #jumbohr{
-    width: 40%;
+    width: 60%;
     border: solid 2px;
     color: whitesmoke;
     
@@ -89,6 +89,7 @@ button:hover{
     margin-top: 2%;
     font-family: 'Marienda';
     font-size: 24px;
+    color: white;
 }
 
 .submit-text {
@@ -97,6 +98,11 @@ button:hover{
     font-weight: 700;    
     font-family:  Arial, Helvetica, sans-serif;
     
+}
+
+.instruction-text {
+    color: white;
+    font-size: 14px;
 }
 
 #addburger{
