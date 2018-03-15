@@ -1,8 +1,10 @@
-<div class="jumbotron-container">
+<div class="container">
     <div class="jumbotron">
-        <img src="/public/assets/images/burger_banner.jpg">
+        <img id="burger-image" src="/assets/images/burger_banner.jpg">
         <h1>What Burger Are You Craving?!</h1>
     </div>
+
+    
 
 
     <!-- Pass in data from server.js -->
@@ -15,18 +17,15 @@
     {{#each burgersData}} 
         {{#unless this.devoured}}
 
-        <p>ID:{{this.id}}</p>
-        <p>{{this.burger_name}}</p>
+        <p>{{this.id}} {{this.burger_name}}</p> 
 
-        <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
+        {{!-- <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST"> --}}
             {{!--
             <input type="hidden" name="devoured" value="false"> --}}
 
-            <button type="submit" name="devoured" value="true">DEVOUR THAT BURGER!</button>
+            <button type="submit" class="devourburger" data-id="{{this.id}}" name="devoured" value="true">DEVOUR THAT BURGER!</button>
 
-            {{> burgers/delete-burger}}
-
-        </form>
+        {{!-- </form> --}}
 
         {{/unless}}   
     {{/each}}
@@ -44,7 +43,7 @@
         <p>{{this.burger_name}}</p>
 
         {{burgers/delete-burger}}
-        
+
         </form>
         {{/if}} 
         {{/each}}
@@ -67,3 +66,5 @@
         <button type="submit" id="addburger">Submit Burger</button>
         <h5>Enter the Type of Burger You Would Like to Have, Then Click the "Submit" Button</h5>
     </form>
+
+

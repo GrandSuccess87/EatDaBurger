@@ -31,28 +31,34 @@ $(document).ready(function(){
 
 // ---------------------- UPDATE FUNCTION ----------------------------- //
 
-$(document).on("click", "devourburger", function(event){
-    event.PreventDefault()
+$(document).on("click", ".devourburger", function(event){
+    event.preventDefault()
+
     
-    var updateID = $(this).attr('data-id');
-    var updatePath = '/api/burgers' + updateID;
+    var updateID = $(this).data('id');
+    var updatePath = "/api/burgers/" + updateID;
+    var updatedBurger = {
+        id: updateID,
+        devoured: true
+    }
 
         $.ajax(updatePath, {
             type: "PUT",
             data: updatedBurger
-        }).then(function(data){
+        }).then(function(){
             console.log("Burger at: " + updateID + "updated!");
             location.reload()
 
-        }) .catch((err) => {
-            console.log(err)
-            $("#messages").text(err);
         })
+        // .catch((err) => {
+        //     console.log(err)
+        //     $("#messages").text(err);
+        // })
 });
 
-$("deleteburger").on("click", function(event){
+$("#deleteburger").on("click", function(event){
     event.PreventDefault()
-    var deleteID = $(this).attr('data-id');
+    var deleteID = $(this).data('id');
     var deletePath = '/api/burgers/zero' + deleteID;
     $.ajax(deletePath, {
         type: "DELETE",

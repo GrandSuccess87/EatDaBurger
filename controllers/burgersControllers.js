@@ -37,21 +37,23 @@ var burgers = require("../models/burger.js");
         //    return res.redirect("/");
         }); 
 
+
+  
+
     router.put("/api/burgers/:id", function(req, res){
         // update row where id = the parameter of id
         var condition = "id = " + req.params.id;
         console.log("Updating at: " + condition); 
 
-        burgers.update({
-            devoured: req.body.devoured
-        }, condition, function(result){
+        burgers.update(
+            req.params.id, function(result){
             console.log("Update Result: " + result);
-            if(result.changedRows == 0 ){
-                return res.status(404).end();
-            } else {
-                return res.status(200).end();
-                // return res.redirect("/");
-            }
+            // if(result.changedRows == 0 ){
+            //     return res.status(404).end();
+            // } else {
+            //     return res.status(200).end();
+            //     // return res.redirect("/");
+            // }
         });
     });
 
