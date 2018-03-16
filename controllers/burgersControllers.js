@@ -15,7 +15,7 @@ var burgers = require("../models/burger.js");
 
             console.log("burgers object" + JSON.stringify(data));
 
-            return res.redirect("/");
+            return res.render("index", burgersObject);
 
         });
     });
@@ -35,10 +35,10 @@ var burgers = require("../models/burger.js");
             function (result) {
                 console.log(result);
                 // This sends back the result object of the new burger to the user
-                return res.json({
-                    post: result
-                });
-                //    return res.redirect("/");
+                // return res.json({
+                //     post: result
+                // });
+                   return res.redirect("/");
             });
         });
 
