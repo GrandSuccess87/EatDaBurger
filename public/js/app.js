@@ -35,7 +35,7 @@ $(document).on("click", ".devourburger", function(event){
     event.preventDefault()
 
     
-    var updateID = $(this).data('data-id');
+    var updateID = $(this).data('id');
     var updatePath = "/api/burgers/" + updateID;
     var updatedBurger = {
         id: updateID,
