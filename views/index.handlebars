@@ -50,7 +50,7 @@
     {{#each burgersData}} 
         {{#unless this.devoured}}
 
-        <p class="body-text">{{this.id}}. {{this.burger_name}}</p> 
+        <p class="body-text">Name: <br> {{this.burger_name}}</p> 
 
         {{!-- <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST"> --}}
             {{!--
@@ -77,7 +77,7 @@
         {{#each burgersData}} 
         {{#if this.devoured}}
 
-        <p class="body-text">{{this.id}}. {{this.burger_name}}</p>
+        <p class="body-text">Name: <br> {{this.burger_name}}</p>
 
         {{> burgers/delete-burger}}
 

@@ -34,11 +34,7 @@ var burgers = require("../models/burger.js");
             ['burger_name', 'devoured'], [req.body.burger_name, false],
             function (result) {
                 console.log(result);
-                // This sends back the result object of the new burger to the user
-                // return res.json({
-                //     post: result
-                // });
-                   return res.redirect("/");
+                return res.redirect("/");
             });
         });
 
@@ -53,14 +49,9 @@ var burgers = require("../models/burger.js");
                 devoured: req.body.devoured 
            },
             condition, function (result) {
-                    console.log("Update Result: " + result);
-                    // if(result.changedRows == 0 ){
-                    //     return res.status(404).end();
-                    // } else {
-                        return res.status(200).end();
-                        // return res.redirect("/");
-                    // }
-                });
+                console.log("Update Result: " + result);
+                return res.status(200).end();
+            });
         });
 
         router.delete("/api/burgers/:id", function (req, res) {
@@ -68,12 +59,7 @@ var burgers = require("../models/burger.js");
             var condition = "id = " + req.params.id;
             console.log("Deleting burger at: " + condition);
             burgers.delete(condition, function(result) {
-                if (result.changedRows == 0) {
-                    return res.status(400).end();
-                } else {
-                    // return res.status(200).end();
-                    return res.redirect("/");
-                }
+                    return res.redirect("/"); 
             });
         });
    
