@@ -71,8 +71,8 @@ var burgers = require("../models/burger.js");
                 if (result.changedRows == 0) {
                     return res.status(400).end();
                 } else {
-                    return res.status(200).end();
-                    // return res.redirect("/");
+                    // return res.status(200).end();
+                    return res.redirect("/");
                 }
             });
         });

@@ -56,10 +56,14 @@ $(document).on("click", ".devourburger", function(event){
         // })
 });
 
-$("#deleteburger").on("click", function(event){
+$(document).on("click",". delete", function(event){
     event.PreventDefault()
     var deleteID = $(this).data('id');
-    var deletePath = '/api/burgers/zero' + deleteID;
+    var deletePath = '/api/burgers/' + deleteID;
+
+    var deletedBurger = {
+        id: deleteID
+    }
     $.ajax(deletePath, {
         type: "DELETE",
         data: deletedBurger
