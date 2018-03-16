@@ -15,7 +15,7 @@ var burgers = require("../models/burger.js");
 
             console.log("burgers object" + JSON.stringify(data));
 
-            return res.render("index", burgersObject);
+            return res.redirect("/");
 
         });
     });
@@ -50,17 +50,16 @@ var burgers = require("../models/burger.js");
             var condition = "id = " + req.params.id;
             console.log("Updating at: " + condition);
             burgers.update({
-                id: req.params.id, 
-              
+                devoured: req.body.devoured 
            },
             condition, function (result) {
                     console.log("Update Result: " + result);
-                    if(result.changedRows == 0 ){
-                        return res.status(404).end();
-                    } else {
+                    // if(result.changedRows == 0 ){
+                    //     return res.status(404).end();
+                    // } else {
                         return res.status(200).end();
                         // return res.redirect("/");
-                    }
+                    // }
                 });
         });
 
