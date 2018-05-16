@@ -252,4 +252,4 @@ Add a README.md to your repository describing the project. Here are some resourc
 
 
 About READMEs
-Mastering Markdown
+Mastering Markdown.
