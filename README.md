@@ -1,50 +1,31 @@
 # EatDaBurger
 
- A restaurant app that follows a MVC design pattern utilizing a homemade ORM, Handlebars.js, Express.js, Node.js, and MySQL 
-
-Overview
-
-In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
-
-
-Important
-
-Be sure to utilize the MYSQL Heroku Deployment Guide in order to deploy your assignment.
-
-
-Before You Begin
+ A restaurant app that follows a MVC design pattern utilizing a homemade ORM, Handlebars.js, Express.js, Node.js, and MySQL.  Node and MySQL are used to query and route data in the app, and Handlebars is used to generate the HTML.
 
 
 Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
-Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+Whenever a user submits a burger's name, the app will display the burger on the left side of the page -- waiting to be devoured.
+
 Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
-Your app will store every burger in a database, whether devoured or not.
-Check out this video of the app for a run-through of how it works.
 
-
+The app will store every burger in a database, whether devoured or not.
 
 Instructions
 
-
 App Setup
 
-
-Create a GitHub repo called burger and clone it to your computer.
-Make a package.json file by running npm init from the command line.
 Install the Express npm package: npm install express.
-Create a server.js file.
 Install the Handlebars npm package: npm install express-handlebars.
 Install the body-parser npm package: npm install body-parser.
 Install MySQL npm package: npm install mysql.
 
 Require the following npm packages inside of the server.js file:
 
-
 express
 body-parser
 
 
-
+MVC Design Pattern
 
 ├── config
 |  ├── connection.js
@@ -84,9 +65,6 @@ id: an auto incrementing int that serves as the primary key.
 burger_name: a string.
 
 devoured: a boolean.
-
-
-
 
 
 Still in the db folder, create a seeds.sql file. In this file, write insert queries to populate the burgers table with at least three entries.
@@ -187,9 +165,6 @@ Setup the index.handlebars to have the template that Handlebars can render onto.
 Create a button in index.handlebars that will submit the user input into the database.
 
 
-
-
-
 Directory structure
 
 All the recommended files and directories from the steps above should look like the following structure:
@@ -230,12 +205,6 @@ All the recommended files and directories from the steps above should look like 
 
 
 
-Minimum Requirements
-
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed.
-
-
-
 
 Hosting on Heroku
 
@@ -243,13 +212,9 @@ Now that we have a backend to our applications, we use Heroku for hosting. Pleas
 
 Please see Heroku’s Account Verification Information for more details.
 
-
-
-
 Create a README.md
 
-Add a README.md to your repository describing the project. Here are some resources for creating your README.md. Here are some resources to help you along the way:
-
+Add a README.md to your repository describing the project. Here is a resource for creating your README.md and a resource to help you along the way:
 
 About READMEs
-Mastering Markdown.
+Mastering Markdown: https://guides.github.com/features/mastering-markdown/
