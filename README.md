@@ -1,6 +1,6 @@
 # EatDaBurger
 
- A restaurant app that follows a MVC design pattern utilizing a homemade ORM, Handlebars.js, Express.js, Node.js, and MySQL.  Node and MySQL are used to query and route data in the app, and Handlebars is used to generate the HTML.
+ A restaurant app that follows a MVC design pattern utilizing a homemade ORM, Handlebars.js, Express.js, Node.js, Express.js, and MySQL.  Node and MySQL are used to query and route data in the app, and Handlebars is used to generate the HTML.
 
 
 Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
